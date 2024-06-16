@@ -1,0 +1,171 @@
+* Cod4 Recording Bootstrap
+A brief setup and usage guide for recording clips in Cod4.
+
+You're single best resource for getting help is the [[https://discord.gg/NYey3vH][CODMVM discord]].
+
+** Recording Demos
+Demos record the state of every entity during gameplay. You can even
+record demos of missions. Demos are used to record arbitrary clips of
+gameplay.
+
+*** Guide
+You can use the command ~/sv_fps~ to set the demo quality, it's
+recommended to use ~/sv_fps 1000~ (I personally haven't noticed that
+this has any effect). Steps 1-3 are optional, they're suggestions I've
+read here and there without evidence. In my experience, ping has the
+highest impact on demo quality.
+
+1. Disable vsync.
+2. Ensure you are in fullscreen mode. Either set ~r_smp_backend 0~ in
+   =config_mp= or run the console command ~/r_fullscreen 1;
+   vid_restart~.
+3. Ensure your refresh rate and resolution match your monitor.
+4. ~/record <demo_name>~: start recording demo
+5. ~/stoprecord~: stop recording demo
+
+Demo ouputs are located here:
+=pathToYourCod4GameFiles/main/demos=. You can find the location of
+your game files via the steam launcher.
+
+*** Cod4x
+Cod4x is a client that allows you to connect to modded servers. Cod4x
+is pretty much the only way to access the remaining active servers on
+the game; Cod4x is where you hit clips. **Demos are recorded the same
+way in Cod4x as previously mentioned**.
+
+**** Installation
+1. Obtain Cod4 on steam.
+2. Locate and download the latest version of the Cod4x client
+   [[https://cod4x.ovh/tag/releases][on the Cod4x forum]].
+3. Extract the contents and follow the instructions in the provided
+   =readme=.
+4. Launch Cod4 from Steam. Test to see if you can join Cod4x servers.
+
+The forum will have more information/guides if you get stuck or want
+to explore.
+
+**** Converting Cod4x Demos
+**IW3MVM**, the recording software, is only fully supported on vanilla
+Cod4. Meaning you may need to convert your Cod4x demos to vanilla
+demos. Convert your demos with this [[https://github.com/Caball009/Call-of-Duty-4-X-Demo-Tool/releases][tool]]. Read the =readme= for usage.
+
+This is the only change I make to my =config.ini=:
+- ~targetProtocol = 6~: In my case I'm converting to pre-Cod4x to
+  vanillla (1.7).
+
+You might be tempted to enable other configuration options but most of
+the same options can be applied when you're recording your clips.
+
+** Recording Footage
+IW3MVM is a theater mode mod for Cod4 that supports dolly cams, depth
+maps, fog, green screens, and much more. You load a demo in IW3MVM and
+record your cinematics and povs. IW3MVM is only officially supported
+on vanilla Cod4:
+
+#+begin_quote
+Is this compatible with COD4x?
+
+Yes, although I cant guarantee every feature will work as it does on
+the vanilla game.
+
+-- [[https://codmvm.com/mod/iw3mvm][IW3MVM]]
+#+end_quote
+
+*** Installation
+Since IW3MVM is only officially supported on vanilla Cod4 I have two
+sets of game files, one vanilla for IW3MVM and one with the Cod4x
+client. On the other hand, I was not even able to load IW3MVM unless I
+was running vanilla Cod4 v1.7.
+
+1. (optional but suggested) Make a backup of the vanilla Cod4
+   game files. Make sure you are using version 1.7 (copy
+   [[https://codmvm.com/data/iwxmvm/iw3mp.exe][this executable]] into
+   your copied game files directory). You can even add this additional
+   version on steam so you can launch it there: Add a Game -> Add a
+   Non-Steam Game -> Browse (select =iw3mp.exe=).
+2. Download [[https://codmvm.com/launcher][CODMVM launcher]].
+3. Run launcher, select IW3MVM mod and download. When it's finished it
+   will wait for an instance of Cod4 to attach to.
+4. Launch an instance of Cod4 you want IW3MVM to attach to. A
+   non-interactive console will appear without warnings if it
+   successfully attaches.
+
+If at any point you have issues with CODMVM their
+[[https://discord.gg/NYey3vH][discord]] is a great place to get help.
+
+*** Guide
+1. Disable vsync.
+2. Ensure you are in fullscreen mode. Either set ~r_smp_backend 0~ in
+   =config_mp= or run the console command ~/r_fullscreen 1;
+   vid_restart~.
+3. Ensure your refresh rate and resolution match your monitor
+   (supposedly you can spoof the recording resolution to record at
+   higher resolutions but I don't know how).
+2. If necessary copy demos to =Mods/ModWarfare/demos= in the Cod4 that
+   IW3MVM attaches to. **Convert the demos if necessary**.
+3. Launch Cod4, use the mod with your demos, attach IW3MVM.
+4. Load demo with: ~/demo~.
+5. Read IW3MVM console for recording instructions.
+
+**Note**: I have to export my recordings as targa sequences because
+exporting as an avi produces black frames. You can change the export
+format with ~/mvm_streams_export~.
+
+**** Useful Console Commands
+- ~/r_dof_tweak 1~: A decent depth of field preset.
+- ~/sv_fps 1000~: Server frame rate, not sure if this helps.
+- ~/com_maxfps~: Limit fps (I use 30), attempt to preserve resources
+  for recording speedup.
+- ~/cg_fov~: Sets the camera's field of view, this is crucial for
+  recording cines.
+- ~/cg_draw2D 0~: Hide 2D elements, like the kill feed.
+
+Your recordings/streams outputs will be located in
+=Mods/ModWarfare/movies=. You can change the location with
+~/mvm_export_directory~.
+
+*** Extras
+**** IWXMVM
+Supposedly this is an enhancement of IW3MVM which gives more of an
+editor-like workflow to recording clips. It includes a timeline,
+checkboxes, and effects like AE. I haven't used it and it's still in
+beta. You can even directly export encoded recordings.
+
+**** Reshade
+This is a huge library of shaders that you can apply to the game
+before recording with IW3MVM. It includes effects like ambient
+occlusion, dynamic depth of field, light source direction, and much
+more. **This is a heavy mod, I would only suggest this if you have a
+capable pc**. I also want to emphasize that you don't need this
+library to make quality edits.
+
+**** Customizations
+You can use custom configs, skies, models, textures, and mods to
+further alter the look of the game. I'd honestly avoid these details
+unless there is a very specific and appropriate look you are going
+for that you can't acheive in post.
+
+** Post Processing
+Your file sizes will be huge. You should compress them with an
+appropriate encoding.
+
+Encodings and their effects on render performance is complicated,
+**gmzorz**, one of the CODMVM devs, has a great little
+[[https://github.com/gmzorz/prerecs][tool/guide]]. I've included a script to batch encode recordings using
+his encoding settings.
+
+*** Recommended Encodings
+**** Xvid
+An mp4 encoding. Lossier, smaller file sizes, mediocre editor/render
+performance. This is what I use since I prefer conserving disk space.
+
+**** Lagarith
+Don't know much about it. Similar to Prores, used to be very popular.
+
+**** Prores
+An apple encoding. Less lossy, larger file sizes, better editor/render
+performance.
+
+**** Using My Sript
+1. put script on path
+2. example: ~xvid.bat mvm_w_%07d.tga 1263 mvm_w.avi~
