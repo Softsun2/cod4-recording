@@ -166,6 +166,10 @@ Don't know much about it. Similar to Prores, used to be very popular.
 An apple encoding. Less lossy, larger file sizes, better editor/render
 performance.
 
-**** Using My Sript
-1. put script on path
-2. example: ~xvid.bat mvm_w_%07d.tga 1263 mvm_w.avi~
+**** My Sript
+I developed a quick script that recursively encodes all targa
+sequences in a directory using xvid. See the release binary.
+
+***** Setup
+1. Add release executable to your path.
+2. Execute ~ss2-batch-encoder.exe --help~ for usage.
