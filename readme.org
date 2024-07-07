@@ -30,8 +30,8 @@ your game files via the steam launcher.
 *** Cod4x
 Cod4x is a client that allows you to connect to modded servers. Cod4x
 is pretty much the only way to access the remaining active servers on
-the game; Cod4x is where you hit clips. **Demos are recorded the same
-way in Cod4x as previously mentioned**.
+the game; Cod4x is where you hit clips. *Demos are recorded the same
+way in Cod4x as previously mentioned*.
 
 **** Installation
 1. Obtain Cod4 on steam.
@@ -45,7 +45,7 @@ The forum will have more information/guides if you get stuck or want
 to explore.
 
 **** Converting Cod4x Demos
-**IW3MVM**, the recording software, is only fully supported on vanilla
+*IW3MVM*, the recording software, is only fully supported on vanilla
 Cod4. Meaning you may need to convert your Cod4x demos to vanilla
 demos. Convert your demos with this [[https://github.com/Caball009/Call-of-Duty-4-X-Demo-Tool/releases][tool]]. Read the =readme= for usage.
 
@@ -102,12 +102,12 @@ If at any point you have issues with CODMVM their
    (supposedly you can spoof the recording resolution to record at
    higher resolutions but I don't know how).
 2. If necessary copy demos to =Mods/ModWarfare/demos= in the Cod4 that
-   IW3MVM attaches to. **Convert the demos if necessary**.
+   IW3MVM attaches to. *Convert the demos if necessary*.
 3. Launch Cod4, use the mod with your demos, attach IW3MVM.
 4. Load demo with: ~/demo~.
 5. Read IW3MVM console for recording instructions.
 
-**Note**: I have to export my recordings as targa sequences because
+*Note*: I have to export my recordings as targa sequences because
 exporting as an avi produces black frames. You can change the export
 format with ~/mvm_streams_export~.
 
@@ -121,8 +121,7 @@ format with ~/mvm_streams_export~.
 - ~/cg_draw2D 0~: Hide 2D elements, like the kill feed.
 
 Your recordings/streams outputs will be located in
-=Mods/ModWarfare/movies=. You can change the location with
-~/mvm_export_directory~.
+=Mods/ModWarfare/movies=.
 
 *** Extras
 **** IWXMVM
@@ -135,8 +134,8 @@ beta. You can even directly export encoded recordings.
 This is a huge library of shaders that you can apply to the game
 before recording with IW3MVM. It includes effects like ambient
 occlusion, dynamic depth of field, light source direction, and much
-more. **This is a heavy mod, I would only suggest this if you have a
-capable pc**. I also want to emphasize that you don't need this
+more. *This is a heavy mod, I would only suggest this if you have a
+capable pc*. I also want to emphasize that you don't need this
 library to make quality edits.
 
 **** Customizations
@@ -150,7 +149,7 @@ Your file sizes will be huge. You should compress them with an
 appropriate encoding.
 
 Encodings and their effects on render performance is complicated,
-**gmzorz**, one of the CODMVM devs, has a great little
+*gmzorz*, one of the CODMVM devs, has a great little
 [[https://github.com/gmzorz/prerecs][tool/guide]]. I've included a script to batch encode recordings using
 his encoding settings.
 
