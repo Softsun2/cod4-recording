@@ -41,7 +41,7 @@ def encode_targa(dest: Path, src: Path) -> None:
     path_names = list(map(lambda p: p.stem, paths))
     encode(
         src / PurePath(path_names[0][:-7] + "%07d.tga"),
-        dest / PurePath(f"{src.parent.stem}-{src.stem}").with_suffix(".avi"),
+        dest / PurePath(f"{src.parent.name}-{src.stem}.avi"),
         get_start_number(path_names)
     )
 
