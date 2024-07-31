@@ -39,14 +39,7 @@ def encode_targa(dest: Path, src: Path) -> None:
         return
 
     path_names = list(map(lambda p: p.stem, paths))
-    encode(
-        src / PurePath(path_names[0][:-7] + "%07d.tga"),
-        dest / PurePath(f"{src.parent.name}-{src.stem}.avi"),
-        get_start_number(path_names)
-    )
-
-def encode(src: Path, dest: Path, start_number: int) -> None:
-    subprocess.run([
+    encode = lambda src, dest, start_number: subprocess.run([
         "ffmpeg",
         "-start_number", str(start_number),
         "-i", str(src),
@@ -54,5 +47,30 @@ def encode(src: Path, dest: Path, start_number: int) -> None:
         "-g", "32",
         "-qscale:v", "1",
         "-y",
-        str(dest)
-    ])
+        str(dest)])
+    encode(
+        src / PurePath(path_names[0][:-7] + "%07d.tga"),
+        dest / PurePath(f"{src.parent.name}-{src.stem}.avi"),
+        get_start_number(path_names))
+
+def encode_avi(dest: Path, src: Path) -> None:
+    """
+    Encodes an avi.
+    """
+    if not src.exists() or not src.is_file():
+        return
+
+    if not src.suffix == ".avi":
+        return
+
+    encode = lambda src, dest: subprocess.run([
+        "ffmpeg",
+        "-i", str(src),
+        "-vcodec", "mpeg4", "-vtag", "xvid",
+        "-g", "32",
+        "-qscale:v", "1",
+        "-y",
+        str(dest)])
+    encode(
+        src,
+        dest / PurePath(f"{src.parent.name}-{src.stem}.avi"))
